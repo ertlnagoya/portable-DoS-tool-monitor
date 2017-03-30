@@ -15,11 +15,7 @@
 """
 
 
-import os, sys, socket, struct, select, time, signal
-
-import json
-import datetime,math
-import requests
+import os, sys, socket, struct, select, time, signal, datetime, math, requests, json
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
@@ -30,20 +26,18 @@ else:
     # On most other platforms the best timer is time.time()
     default_timer = time.time
 
-
 # ICMP parameters
 ICMP_ECHOREPLY = 0 # Echo reply (per RFC792)
 ICMP_ECHO = 8 # Echo request (per RFC792)
 ICMP_MAX_RECV = 2048 # Max size of incoming buffer
-
 MAX_SLEEP = 1000
 
-##elasticsearch
+# elasticsearch
 URL = "http://localhost:9200"
-INDEX_URL = URL + "/packets"
-TYPE_URL = INDEX_URL + "/packet"
-ACTION = {"_index" : "packets",
-          "_type" : "packet",
+INDEX_URL = URL + "/ping"
+TYPE_URL = INDEX_URL + "/response"
+ACTION = {"_index" : "ping",
+          "_type" : "response",
           "_source": {}
          }
 
@@ -54,7 +48,7 @@ def delete_index():
 def create_index():
     """Create an index in elastic search with timestamp enabled."""
     requests.put(INDEX_URL)
-    setting = {"packet" : {
+    setting = {"response" : {
                 "_timestamp" : {
                     "enabled" : True,
                     "path" : "capture_timestamp",
@@ -64,8 +58,6 @@ def create_index():
                 "properties" : {
                     "delay" : {
                         "type" : "number",
-                        #"index" : "not_analyzed",
-                        #"store" : True
                     },
                 }
             }
@@ -76,7 +68,7 @@ def create_index():
         except:
             time.sleep(1)
             pass
-##
+
 
 def calculate_checksum(source_string):
     """
@@ -218,30 +210,40 @@ class Ping(object):
         #self.setup_signal_handler()
 
         #elasticsearch
-        packet_que = list()
+        response_que = list()
         es = Elasticsearch()
+        error = 0
         #end_time = None
         #
         while True:
             delay = self.do()
             #print delay
+            #elasticsearch -----------------------------------------------------------------
             try:
-                #elasticsearch -----------------------------------------------------------------
-                row_timestamp = datetime.datetime.today()
-                #print row_timestamp
+                error = 1
+                error_message = "Get request "
+                #row_timestamp = datetime.datetime.today()
                 row_timestamp=datetime.datetime.now() - datetime.timedelta(hours=9)
                 #print row_timestamp
                 timestamp = row_timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
                 #protocol = None
-                parsed_packet = dict(delay=delay, #protocol=protocol,
+                if delay == -2:
+                    delay = 10
+                    error = -2 
+                    error_message = "Request timed out"
+                if delay == -1:
+                    delay = 10
+                    error = -1 
+                    error_message = "General failure"
+                parsed_response = dict(delay=delay, error = error, error_message = error_message,
                                      capture_timestamp=timestamp)
 
                 # For historical graph
                 #parsed_packet["@timestamp"] = timestamp
                 #parsed_packet["@delay"] = round(delay)
                 action = ACTION.copy()
-                action["_source"].update(parsed_packet)
-                packet_que.append(action)
+                action["_source"].update(parsed_response)
+                response_que.append(action)
                 #current = time.time()
                 #print current
                 #print 
@@ -249,11 +251,12 @@ class Ping(object):
                     #print packet_que
                     #print es
                 if delay > 0:
-                    h=helpers.bulk(es, packet_que) #send info to ES
-                    print h
-                    del packet_que[0:len(packet_que)]
+                    h=helpers.bulk(es, response_que) #send info to ES
+                    #print h
+                    del response_que[0:len(response_que)]
                     #end_time = time.time()
                     #break
+
 
             except Exception as e:
                 time.sleep(1)
@@ -296,7 +299,7 @@ class Ping(object):
 
         send_time = self.send_one_ping(current_socket)
         if send_time == None:
-            return 0 #add to
+            return -1 #add to
         self.send_count += 1
 
         receive_time, packet_size, ip, ip_header, icmp_header = self.receive_one_ping(current_socket)
@@ -316,7 +319,7 @@ class Ping(object):
             return delay
         else:
             self.print_failed()
-            return 0 #add to
+            return -2 #add to
 
     def send_one_ping(self, current_socket):
         """
