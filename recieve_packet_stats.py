@@ -74,9 +74,7 @@ def process_data(data):
 
     timestamp = float(timestamp)
     count = int(count[:-1])
-    #print timestamp
-    #print count
-    attack_bandwidth = float(count - before_count) / (timestamp - before_timestamp)
+    attack_bandwidth = float(count - before_count) / (timestamp - before_timestamp) * 8　#byte
 
     try:
         if before_timestamp == 0:
@@ -86,19 +84,13 @@ def process_data(data):
         before_timestamp = timestamp
         before_count = count
 
-
         row_timestamp=datetime.datetime.fromtimestamp(timestamp) - datetime.timedelta(hours=9)
-        print row_timestamp
         timestamp = row_timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
-        #protocol = None
         parsed_packet = dict(traffic = count,attack_bandwidth = attack_bandwidth, capture_timestamp = timestamp)
-        #print timestamp
-        #print count
         action = ACTION.copy()
         action["_source"].update(parsed_packet)
         packet_que.append(action)    
-        h=helpers.bulk(es, packet_que) #send info to ES
-        #print h
+        h=helpers.bulk(es, packet_que) #send info to elasticsearch
         del packet_que[0:len(packet_que)]
     except Exception as e:
        time.sleep(1)
@@ -106,7 +98,6 @@ def process_data(data):
     return 
 
 
-# elasticsearch
 delete_index()
 create_index()
 
@@ -125,3 +116,5 @@ while True:
         #print("waiting...")
 
     conn.close()
+
+    

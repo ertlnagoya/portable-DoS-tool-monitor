@@ -220,7 +220,7 @@ class Ping(object):
             #print delay
             #elasticsearch -----------------------------------------------------------------
             try:
-                error = 1
+                error = 0
                 error_message = "Get request "
                 #row_timestamp = datetime.datetime.today()
                 row_timestamp=datetime.datetime.now() - datetime.timedelta(hours=9)
