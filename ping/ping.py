@@ -60,7 +60,7 @@ def create_index():
                         "type": "date",
                     },
                     "delay": {
-                        "type": "number",
+                        "type": "float",
                     },
                     "error": {
                         "type": "number",
@@ -242,7 +242,7 @@ class Ping(object):
 
                 if delay > 0:
                     res = es.index(index="ping", doc_type="response", body={"timestamp": timestamp, "delay": delay, "error": error, "error_message" : error_message})
-                    print(res)
+                    #print(res)
 
                     #res = es.search(index="ping", doc_type="response", body={"timestamp": timestamp, "delay": delay, "error": error, "error_message" : error_message})
                     #print("Got %d Hits:" % res['hits']['total'])
