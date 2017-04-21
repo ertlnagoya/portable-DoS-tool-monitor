@@ -79,6 +79,8 @@ def process_data(data):
     try:
         row_timestamp=datetime.datetime.fromtimestamp(timestamp) - datetime.timedelta(hours=9)
         timestamp = row_timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
+        print timestamp
+        
         res = es.index(index="captures", doc_type="capture", body={"timestamp": timestamp, "capture": capture})
         print(res)
 
