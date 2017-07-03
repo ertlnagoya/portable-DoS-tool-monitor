@@ -10,13 +10,14 @@ npm install # nodeモジュールの依存関係を解決
 ```
 
 ----
-```npm start # development mode での起動   
+```   
+npm start # development mode での起動   
 ```
 
 ## elasticsearch導入   
 ----
 ```docker pull docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
-docker run --rm -it -p 9200:9200 --name elasticsearch -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
+docker run --rm -it -p 9200:9200 --name elasticsearch -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" -e    "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
 ```
 
 起動   
