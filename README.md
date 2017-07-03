@@ -3,10 +3,10 @@
 ## kibana導入   
 https版 https://github.com/ertlnagoya/kibana.git   
 ----
-git clone git@github.com:ertlnagoya/kibana.git # ssh版推奨   
+"git clone git@github.com:ertlnagoya/kibana.git # ssh版推奨   
 git checkout dev # 開発はdevブランチでしている   
 nvm install $(cat .node-version) # nodejs のバージョンを開発者の間で合わせるため   
-npm install # nodeモジュールの依存関係を解決   
+npm install # nodeモジュールの依存関係を解決   "
 
 ----
 npm start # development mode での起動   
