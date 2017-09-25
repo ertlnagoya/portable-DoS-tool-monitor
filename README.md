@@ -17,24 +17,35 @@ TODO
 ## Requirement
 TODO    
 ## Usage
-TODO    
-## Install
+### Elasticsearch Start
 ```
-git clone git@github.com:ertlnagoya/portable-DoS-tool-monitor.git
+docker ps -a   
+docker start [Process ID]  
+``` 
+### Elasticsearch Stop    
+```    
+docker stop [Process ID]    
+``` 
+### Kibana Start
+```   
+npm start # development mode  
 ```
+### Monitor program Start    
+```
+python correct_time_server.py    
+python recieve_packet_stats.py    
+python webcam_server.py 
+python ping_server.py
+```
+## Install    
 ### Elasticsearch Install 
 Elasticsearch https://www.elastic.co/jp/products/elasticsearch
 ```
 docker pull docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
 docker run --rm -it -p 9200:9200 --name elasticsearch -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" -e    "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
 ```
-### Elasticsearch Start
-```
-docker ps -a   
-docker start 4aa6da0ada4f # Process ID  
-docker stop 4aa6da0ada4f  
-``` 
-### kibana Install 
+
+### Kibana Install 
 kibana https://www.elastic.co/jp/products/kibana    
      
 https: https://github.com/ertlnagoya/kibana.git   
@@ -44,9 +55,9 @@ git checkout dev
 nvm install $(cat .node-version) # for nodejs version  
 npm install # for node module 
 ```
-### kibana Start
-```   
-npm start # development mode  
+### Monitor program Install
+```
+git clone git@github.com:ertlnagoya/portable-DoS-tool-monitor.git
 ```
 ## Contribution
 TODO
