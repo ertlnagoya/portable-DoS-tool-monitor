@@ -15,7 +15,11 @@ TODO
 TODO    
 <img width="659" alt="2017-09-25 10 22 39" src="https://user-images.githubusercontent.com/26764885/30792602-a87c3b32-a1f6-11e7-8560-b4e1e6c65385.png">
 ## Requirement
-TODO    
+- macOS Sierra v.10.12.6
+     - python 2.7
+     - docker 17.06.2-ce-mac27
+     - nvm
+     - npm    
 ## Usage
 ### Elasticsearch Start
 ```
@@ -28,6 +32,7 @@ docker stop [Process ID]
 ``` 
 ### Kibana Start
 ```   
+cd kibana
 npm start # development mode  
 ```
 ### Monitor program Start    
