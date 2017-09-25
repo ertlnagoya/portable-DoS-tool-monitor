@@ -42,17 +42,17 @@ python webcam_server.py
 python ping_server.py
 ```
 ## Install    
-### Elasticsearch Install 
-Elasticsearch https://www.elastic.co/jp/products/elasticsearch
+### Elasticsearch Install
+[Elasticsearch](https://www.elastic.co/jp/products/elasticsearch)     
 ```
 docker pull docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
 docker run --rm -it -p 9200:9200 --name elasticsearch -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" -e    "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.3.0   
 ```
 
 ### Kibana Install 
-kibana https://www.elastic.co/jp/products/kibana    
+[kibana](https://www.elastic.co/jp/products/kibana)    
      
-https: https://github.com/ertlnagoya/kibana.git   
+[https](https://github.com/ertlnagoya/kibana.git)            
 ```
 git clone git@github.com:ertlnagoya/kibana.git    
 git checkout dev    
