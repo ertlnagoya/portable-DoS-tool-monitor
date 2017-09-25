@@ -1,5 +1,4 @@
-Open-source Software-based Portable DoS Test Tool for IoT Devices    
-Monitor
+Open-source Software-based Portable DoS Test Tool for IoT Devices -Monitor-    
 ====
 The portable DoS tool monitor is instructs the attack and visualizes the load.    
 ## Description
