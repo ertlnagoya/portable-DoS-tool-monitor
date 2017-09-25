@@ -69,5 +69,4 @@ TODO
 ## Licence
 [MIT](https://github.com/ertlnagoya/portable-DoS-tool-monitor/blob/master/LICENSE)
 ## Author
-TODO
 [Nagara](https://github.com/KeigoNagara)
