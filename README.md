@@ -67,7 +67,6 @@ git clone git@github.com:ertlnagoya/portable-DoS-tool-monitor.git
 ## Contribution
 TODO
 ## Licence
-TODO
 [MIT](https://github.com/ertlnagoya/portable-DoS-tool-monitor/blob/master/LICENSE）
 ## Author
 TODO
