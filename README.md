@@ -75,5 +75,5 @@ git clone git@github.com:ertlnagoya/portable-DoS-tool-monitor.git
 ## Licence
 [MIT](https://github.com/ertlnagoya/portable-DoS-tool-monitor/blob/master/LICENSE)
 ## Author
-[K-atc(TODO)](https://github.com/K-atc)    
-[Nagara](https://github.com/KeigoNagara)
+[K-atc](https://github.com/K-atc)    
+[NGR](https://github.com/KeigoNagara)
