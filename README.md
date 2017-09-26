@@ -61,7 +61,7 @@ docker run --rm -it -p 9200:9200 --name elasticsearch -e "http.host=0.0.0.0" -e 
 ### Kibana Install 
 [kibana](https://www.elastic.co/jp/products/kibana)    
      
-[https](https://github.com/ertlnagoya/kibana.git)            
+[https download](https://github.com/ertlnagoya/kibana.git)            
 ```
 git clone git@github.com:ertlnagoya/kibana.git    
 git checkout dev    
