@@ -80,7 +80,7 @@ npm install # for node module
 git clone git@github.com:ertlnagoya/portable-DoS-tool-monitor.git
 ```
 ## Licence
-[MIT](https://github.com/ertlnagoya/portable-DoS-tool-monitor/blob/master/LICENSE)
+[Apache License 2.0](https://github.com/ertlnagoya/portable-DoS-tool-monitor/blob/master/LICENSE)
 ## Author
 [K-atc](https://github.com/K-atc)    
 [NGR](https://github.com/KeigoNagara)
