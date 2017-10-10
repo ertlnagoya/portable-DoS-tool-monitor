@@ -82,5 +82,7 @@ git clone git@github.com:ertlnagoya/portable-DoS-tool-monitor.git
 ## Licence
 [Apache License 2.0](https://github.com/ertlnagoya/portable-DoS-tool-monitor/blob/master/LICENSE)
 ## Author
-[K-atc](https://github.com/K-atc)    
-[NGR](https://github.com/KeigoNagara)
+* [K-atc](https://github.com/K-atc)    
+* [NGR](https://github.com/KeigoNagara)    
+* [Yutaka Matsubara](https://github.com/YutakaMatsubara)    
+
