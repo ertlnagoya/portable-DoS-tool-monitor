@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "04377620-226e-11e7-918f-4f3c7b2c2115",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Load visualization",
+      "hits": 0,
+      "description": "load visualization 0416",
+      "panelsJSON": "[\n  {\n    \"col\": 1,\n    \"id\": \"913d41e0-226d-11e7-918f-4f3c7b2c2115\",\n    \"panelIndex\": 1,\n    \"row\": 1,\n    \"size_x\": 9,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 10,\n    \"id\": \"51b14080-226d-11e7-918f-4f3c7b2c2115\",\n    \"panelIndex\": 2,\n    \"row\": 4,\n    \"size_x\": 3,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 1,\n    \"id\": \"c114e080-226d-11e7-918f-4f3c7b2c2115\",\n    \"panelIndex\": 3,\n    \"row\": 4,\n    \"size_x\": 9,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 10,\n    \"id\": \"3ef56a20-226d-11e7-918f-4f3c7b2c2115\",\n    \"panelIndex\": 4,\n    \"row\": 1,\n    \"size_x\": 3,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-3\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  }\n}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
+      }
+    }
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "913d41e0-226d-11e7-918f-4f3c7b2c2115",
+    "_type": "visualization",
+    "_source": {
+      "title": "ping response",
+      "visState": "{\"title\":\"ping response\",\"type\":\"histogram\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"top\",\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":true,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{\"max\":10,\"min\":0},\"orderBucketsBySum\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"delay\",\"customLabel\":\"ping response delay (ms)\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"range\",\"schema\":\"group\",\"params\":{\"field\":\"error\",\"ranges\":[{\"from\":-2.5,\"to\":-1.5},{\"from\":-1.5,\"to\":-0.5},{\"from\":-0.5,\"to\":0.5}]}},{\"id\":\"4\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"time\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"-0.5 to 0.5\":\"#6ED0E0\",\"-1.5 to -0.5\":\"#EF843C\",\"-2.5 to -1.5\":\"#E24D42\"},\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"ping\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "c114e080-226d-11e7-918f-4f3c7b2c2115",
+    "_type": "visualization",
+    "_source": {
+      "title": "traffic volume",
+      "visState": "{\"title\":\"traffic volume\",\"type\":\"line\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"top\",\"showCircles\":true,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":true,\"defaultYExtents\":false,\"setYExtents\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"attack bandwidth\",\"customLabel\":\"traffic volume (bps)\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"time\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"traffics\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "51b14080-226d-11e7-918f-4f3c7b2c2115",
+    "_type": "visualization",
+    "_source": {
+      "title": "camera timeline",
+      "visState": "{\n  \"title\": \"camera timeline\",\n  \"type\": \"captures\",\n  \"params\": {\n    \"handleNoResults\": true,\n    \"fontSize\": 60,\n    \"image\": false\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"captures\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"*\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "3ef56a20-226d-11e7-918f-4f3c7b2c2115",
+    "_type": "visualization",
+    "_source": {
+      "title": "camera rialtime",
+      "visState": "{\"title\":\"camera rialtime\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60,\"image\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"top_hits\",\"schema\":\"metric\",\"params\":{\"field\":\"capture\",\"aggregate\":\"concat\",\"size\":1,\"sortField\":\"timestamp\",\"sortOrder\":\"desc\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"captures\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
